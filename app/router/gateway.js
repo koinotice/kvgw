@@ -13,7 +13,8 @@ module.exports = app => {
     const {controller, middleware} = app;
     const {meta} = controller.gateway;
 
-    apiV2Router.get('/meta-info', meta.metaInfo);//七牛云信息
-    apiV2Router.get('/meta-list', meta.metaList);//七牛云信息
+    apiV2Router.get('/meta-info', meta.metaInfo);
+    apiV2Router.get('/deposit-info', meta.depositInfo);
+   // apiV2Router.get('/meta-list', meta.metaList);//七牛云信息
 
 };
