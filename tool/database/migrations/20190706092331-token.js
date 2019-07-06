@@ -19,6 +19,10 @@ module.exports = {
       minimumDepositAmount: {type: INTEGER, defaultValue: 1},
       confirmationCount: {type: INTEGER, defaultValue: "20"},
       noticeMsg: {type: STRING(255), allowNull: true},
+      minimumWithdrawAmount:{type: STRING(255)},
+      maximumWithdrawAmount	:{type: STRING(255)},
+      gatewayAddress	:{type: STRING(255)},
+      fee	:{type: INTEGER, defaultValue: "2"},
       createdAt: DATE,//创建时间
       updatedAt: DATE,//更新时间
     });

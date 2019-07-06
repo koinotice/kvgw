@@ -18,7 +18,7 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('tokens');
+    await queryInterface.dropTable('wallets');
   }
 };
 
