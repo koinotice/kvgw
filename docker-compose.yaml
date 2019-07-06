@@ -1,0 +1,48 @@
+version: '3'
+services:
+#  app:
+#    build: ./
+#    volumes:
+#      - ./:/app
+#    working_dir: /app
+#    ports:
+#      - 3000:3000
+#    command: yarn start
+##    links:
+##      - "mysql-server:ms"
+##      - "redis-server:rd"
+#    depends_on:
+#      - postgres
+#      - redis
+
+  postgres:
+    build: "./postgres"
+    container_name: kvgw_postgres
+    restart: "always"
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: "pmker"
+      POSTGRES_USER: "pmker"
+      POSTGRES_PASSWORD: "Zheli123"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+
+  redis:
+    image: redis
+    restart: always
+    container_name: kvgw_redis
+    volumes:
+      - ./data/redis:/data
+    ports:
+      - 6379:6379
+
+  nats:
+    image: nats-streaming:latest
+    restart: always
+    container_name: kvgw_nats
+    #command: -m 8222 --store SQL --sql_driver postgres --sql_source "postgres://pmker:Zheli123@postgres/pmker?sslmode=disable"
+    #command: -m 8222 --store SQL --sql_driver postgres --sql_source "postgres://pmker:Zheli123@postgres/pmker?sslmode=disable"
+    ports:
+      - "4222:4222"
+      - "8222:8222"
