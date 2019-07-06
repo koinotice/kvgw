@@ -95,20 +95,52 @@ module.exports = app => {
                 special: [],
                 primaryKey: false
             },
-        createdAt:{
-                type: 'TIMESTAMP WITH TIME ZONE',
+        minimumWithdrawAmount:
+            {
+                type: 'CHARACTER VARYING(255)',
                 allowNull: true,
                 defaultValue: null,
                 special: [],
                 primaryKey: false
             },
-        updatedAt:{
-                type: 'TIMESTAMP WITH TIME ZONE',
+        maximumWithdrawAmount:
+            {
+                type: 'CHARACTER VARYING(255)',
                 allowNull: true,
                 defaultValue: null,
                 special: [],
                 primaryKey: false
-            }
+            },
+        gatewayAddress:
+            {
+                type: 'CHARACTER VARYING(255)',
+                allowNull: true,
+                defaultValue: null,
+                special: [],
+                primaryKey: false
+            },
+        fee:
+            {
+                type: 'INTEGER',
+                allowNull: true,
+                defaultValue: '2',
+                special: [],
+                primaryKey: false
+            },
+        createdAt: {
+            type: 'TIMESTAMP WITH TIME ZONE',
+            allowNull: true,
+            defaultValue: null,
+            special: [],
+            primaryKey: false
+        },
+        updatedAt: {
+            type: 'TIMESTAMP WITH TIME ZONE',
+            allowNull: true,
+            defaultValue: null,
+            special: [],
+            primaryKey: false
+        }
     })
 
 

@@ -21,6 +21,15 @@ services:
       - 7090:7090
     volumes:
       - ./data/redix-data:/root/redix-data
+
+
+  balance:
+    image: hunterlong/tokenbalance
+    ports:
+      - 6544:8080
+    environment:
+      GETH_SERVER: "https://rinkeby.infura.io/XyRNUV3vyFAmldVaRIjO"
+
   postgres:
     build: "./postgres"
     container_name: kvgw_postgres
