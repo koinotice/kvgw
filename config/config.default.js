@@ -75,6 +75,12 @@ module.exports = appInfo => {
         match: ['/api/v2', '/api/v1','/']
     };
 
+    config.nats={
+        url:"nats://localhost:4222",
+        agent: true,
+
+    }
+
     // 关闭安全威胁csrf的防范
     config.security = {
         csrf: {

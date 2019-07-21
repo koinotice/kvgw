@@ -1,0 +1,14 @@
+version: '3'
+services:
+  mariadb:
+    image: mariadb:latest
+    restart: always
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: pmker
+    ports:
+      - "3306:3306"

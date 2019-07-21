@@ -2,7 +2,7 @@
 
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.bulkInsert('txs', [
+        return queryInterface.bulkInsert('dex_orders', [
             { tokenId: '1', walletAddress: '1', type: 1, inTxHash: '2abc' },
             { tokenId: '1', walletAddress: '1', type: 1, inTxHash: '3abc' },
             { tokenId: '1', walletAddress: '1', type: 1, inTxHash: '4abc' },

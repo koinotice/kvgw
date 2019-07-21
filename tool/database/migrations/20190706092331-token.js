@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const {INTEGER, DATE, STRING} = Sequelize;
-    await queryInterface.createTable('tokens', {
+    await queryInterface.createTable('vite_tokens', {
 
       id: {type: INTEGER, primaryKey: true, autoIncrement: true},
       tokenId: STRING(255),
@@ -29,7 +29,7 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('tokens');
+    await queryInterface.dropTable('vite_tokens');
   }
 };
 

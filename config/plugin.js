@@ -21,6 +21,10 @@ exports.redis = {
     enable: true,
     package: 'egg-redis',
 };
+// exports.nats = {
+//     enable: true,
+//     package: '../egg-nats',
+// };
 
 exports.sessionRedis = {
     enable: true,

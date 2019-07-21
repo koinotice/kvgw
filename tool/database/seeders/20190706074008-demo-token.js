@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('tokens', [{
+    return queryInterface.bulkInsert('vite_tokens', [{
       tokenId: '1',
       tokenSymbol: 'AK47-001',
       type: 0,

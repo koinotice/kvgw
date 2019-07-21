@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@babel/core": "^7.4.5",
+    "@vite/vitejs": "^2.1.2",
+    "@vite/vitejs-account": "^2.1.2",
+    "@vite/vitejs-ws": "^2.1.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.4.5"
+  }
+}

@@ -90,6 +90,26 @@ module.exports = {
     return `${key}${String(value).padStart(6, '0')}`;
   },
 
+
+
+  initNats(ctx) {
+    const topic = `vgw.>`
+   // console.log(  this.nats.subscribe)
+
+    this.nats.subscribe(topic, async (data, reply, subject) => {
+      switch (subject) {
+        case "vgw.order.update":
+
+          ctx.service.order.insertOrder(data)
+          break
+        default:
+          break
+      }
+      console.log("fuck",subject, data)
+
+    })
+  },
+
   // 检查update
   checkUpdate(arr, message) {
     if (arr.includes(0)) {
