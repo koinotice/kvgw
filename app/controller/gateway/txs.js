@@ -38,9 +38,9 @@ class TxsController extends Controller {
         }
 
         const [totalCount, depositRecords] = await Promise.all([
-            common.findCount({ modelName: 'Txs' ,where}),
+            common.findCount({ modelName: 'Order' ,where}),
             common.findPage({
-                modelName: 'Txs',
+                modelName: 'Order',
                 page,
                 where
             })
@@ -51,7 +51,6 @@ class TxsController extends Controller {
 
     //deposit info
     async withdraw() {
-
         const tokenId = this.ctx.request.query.tokenId;
         const walletAddress = this.ctx.request.query.walletAddress;
         if (!tokenId) {
@@ -83,9 +82,9 @@ class TxsController extends Controller {
         }
 
         const [totalCount, withdrawRecords] = await Promise.all([
-            common.findCount({ modelName: 'Txs' ,where}),
+            common.findCount({ modelName: 'Order' ,where}),
             common.findPage({
-                modelName: 'Txs',
+                modelName: 'Order',
                 page,
                 where
             })

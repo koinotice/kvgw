@@ -14,22 +14,33 @@ module.exports = app => {
 
             const wallet = await this.ctx.model.Wallet.findOne(
                 {
-                    where: {walletAddress: walletAddress.toUpperCase()}
+                    where: {vite_address: walletAddress.toLocaleLowerCase()}
                 }
                );
 
-            //console.log("wallet",wallet)
+            //console.log(app.nats)
             if (wallet){
                 return wallet
             }else{
-                await this.create(walletAddress)
-                const ret=await this.ctx.model.Wallet.findOne(
+                const wallets = await this.ctx.model.Wallet.findOne(
                     {
-                        where: {walletAddress: walletAddress.toUpperCase()}
+                        where: {vite_address: ""}
                     }
-                )
+                );
 
-                return ret;
+                console.log(wallets.dataValues)
+                wallets.dataValues.vite_address=walletAddress.toLocaleLowerCase()
+
+                 await this.ctx.model.Wallet.update(wallets.dataValues, {where: {id: wallets.dataValues.id}});
+
+                const obj={
+                    Address:wallets.dataValues.eth_address.toLocaleLowerCase(),
+                    ViteAddress:wallets.dataValues.vite_address
+                }
+                app.nats.publish("vgw.wallet.update",obj)
+
+
+                return wallets.dataValues;
             }
 
 
@@ -51,8 +62,8 @@ module.exports = app => {
             const data=await leven.getAddress(me,index)
           //  console.log(data)
             const params={
-                walletAddress:walletAddress.toUpperCase(),
-                erc20Address:data.erc20address,
+                vite_address:walletAddress.toUpperCase(),
+                eth_address:data.eth_address,
                 index:data.index,
                 pk:data.pk
             }

@@ -4,9 +4,9 @@ module.exports = app => {
     const {STRING, INTEGER, DATE} = app.Sequelize;
 
     const Wallet = app.model.define('wallets', {
-        id:{type: INTEGER, primaryKey: true, autoIncrement: true},
+        id: {type: INTEGER, primaryKey: true, autoIncrement: true},
 
-        walletAddress:
+        vite_address:
             {
                 type: 'CHARACTER VARYING(255)',
                 allowNull: true,
@@ -14,7 +14,7 @@ module.exports = app => {
                 special: [],
                 primaryKey: false
             },
-        erc20Address:
+        eth_address:
             {
                 type: 'CHARACTER VARYING(250)',
                 allowNull: false,
@@ -22,22 +22,7 @@ module.exports = app => {
                 special: [],
                 primaryKey: false
             },
-        pk:
-            {
-                type: 'CHARACTER VARYING(250)',
-                allowNull: false,
-                defaultValue: null,
-                special: [],
-                primaryKey: false
-            },
-        index:
-            {
-                type: 'INTEGER',
-                allowNull: true,
-                defaultValue: '0',
-                special: [],
-                primaryKey: false
-            },
+
         createdAt:
             {
                 type: 'TIMESTAMP WITH TIME ZONE',

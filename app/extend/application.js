@@ -98,9 +98,13 @@ module.exports = {
 
     this.nats.subscribe(topic, async (data, reply, subject) => {
       switch (subject) {
-        case "vgw.order.update":
+        case "vgw.order.create":
 
           ctx.service.order.insertOrder(data)
+          break
+        case "vgw.account.blocks":
+
+          ctx.service.vite.insertOrder(data)
           break
         default:
           break

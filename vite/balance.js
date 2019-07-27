@@ -13,12 +13,12 @@ const myClient = new client(wsProvider, function (_myclient) {
 // vite_512a50000f53c2aeb913f206cf9ee107a850e9f3f72caed6d4
 // 7aaeaddd27a2ccb468976c5c42702c1fa990c28de987b3010f378b859e2de705fa65ed3b349471f58388308fda141b4638baf1ed2509f78f647a0c5c1378a1fc
 
-const address = 'vite_159df2046e8ab0348fd3d25070bbeaec58abd2c03bb93dce0a';
+const address = 'vite_7ffd411655a58926090b86456b2a65096ded73f7065f9f0c09';
 const address1 = 'vite_f4c39830a39c87dcb63867cd7d6ab6cb9ef82824ef620d287f';
 
  //
 setInterval(()=>{
-    myClient.request('testapi_getTestToken',  address1).then((a) => {
+    myClient.request('testapi_getTestToken',  address).then((a) => {
         console.log(a)
     }).catch(err => {
         console.warn(err);
@@ -31,7 +31,7 @@ setInterval(()=>{
     //     // console.log(data.onroad.tokenBalanceInfoMap);
     // });
 
-    myClient.getBalance(address1).then((data) => {
+    myClient.getBalance(address).then((data) => {
         console.log(data );
          console.log(data.balance.tokenBalanceInfoMap);
        //console.log(data.onroad.);

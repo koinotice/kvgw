@@ -3,6 +3,7 @@
 const jwt = require('jsonwebtoken');
 
 const Controller = require('../BaseController');
+var WAValidator = require('wallet-address-validator');
 
 class WithdrawController extends Controller {
     //获取meta info
@@ -16,7 +17,9 @@ class WithdrawController extends Controller {
             throw this.ctx.app.error(1001, "walletAddress不能为空");
 
         }
-        const tokenInfo = await this.ctx.service.meta.tokenInfo(tokenId);
+        const token = await this.ctx.service.meta.tokenInfo(tokenId);
+        const tokenInfo=token.dataValues
+        console.log("tokeninfo",tokenInfo)
         const res = {
             "minimumWithdrawAmount": tokenInfo.minimumWithdrawAmount,
             "maximumWithdrawAmount": tokenInfo.maximumWithdrawAmount,
@@ -42,8 +45,12 @@ class WithdrawController extends Controller {
         // minimumDepositAmount	最小转入金额	string	true
         // confirmationCount	对手链入账确认数	int	true
         // noticeMsg	注意
+
+        var valid = WAValidator.validate(withdrawAddress, 'ETH');
+
+
         const res = {
-            isValidAddress:true
+            isValidAddress:valid
         }
         // const address=await this.ctx.service.wallet.getAddress(walletAddress.toUpperCase());
         // if(address){
@@ -70,7 +77,7 @@ class WithdrawController extends Controller {
         // confirmationCount	对手链入账确认数	int	true
         // noticeMsg	注意
         const res = {
-            fee:10000
+            fee:0
         }
         // const address=await this.ctx.service.wallet.getAddress(walletAddress.toUpperCase());
         // if(address){

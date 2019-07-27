@@ -27,7 +27,7 @@ class Leven {
         const addr = '0x' + wallet.getAddress().toString('hex')
         return {
             index:index,
-            erc20address:addr,
+            eth_address:addr,
             pk:'0x' + wallet.getPrivateKey().toString('hex')
         }
 

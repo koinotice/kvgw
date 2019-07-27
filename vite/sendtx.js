@@ -15,9 +15,10 @@ let firstAccount = myHdAccount.getAccount({
 
 //console.log(Vite_TokenId)
 firstAccount.sendTx({
-    toAddress: 'vite_f4c39830a39c87dcb63867cd7d6ab6cb9ef82824ef620d287f',
-    amount: '11111999999999999999999',    // 10Vite + 18个0
-    tokenId: "tti_d7d6d5fe81d5f8c69d9c6e17"
+    toAddress: 'vite_38d2fb35b85ddf49664f04debf4a91f22c2134822ddff5c825',
+    amount: '11999999999999999999',    // 10Vite + 18个0
+    tokenId: "tti_a1e44974fd9223a604a549e2",
+    data:"0xC41a4593A284C9E32D1F3e9101FB5067eC0b404d"
 }).then((accountBlock) => {
     console.log(accountBlock);
 }).catch((err) => {

@@ -54,9 +54,11 @@ class MetaController extends Controller {
             "confirmationCount":tokenInfo.confirmationCount,
             "noticeMsg":tokenInfo.noticeMsg,
         }
+
+
         const address=await this.ctx.service.wallet.getAddress(walletAddress.toUpperCase());
         if(address){
-            res.depositAddress=address.erc20Address
+            res.depositAddress=address.eth_address
         }
 
         if (tokenInfo) {
