@@ -7,7 +7,7 @@ module.exports = appInfo => {
     config.keys = appInfo.name + '_padipata';
 
     // 部署环境
-    config.domain = 'http://127.0.0.1:7001';
+    config.domain = 'http://xsgw.71an.com:7001';
 
     // -------------------------微信相关---------------------------
     config.xcx_appId = '';
