@@ -8,7 +8,7 @@ const leven = new Leven({
 
         mnemonic: 'yellow margin dose great blush regular best buyer detect fence exhaust tiger',
         address_index: 0,
-        num_addresses: 20,
+        num_addresses: 1000,
         //options: {wallet_hdpath: 'm/44\'/60\'/12580\'/1000'}
         options: {wallet_hdpath: 'm/44\'/60\'/0\'/0/'}
 

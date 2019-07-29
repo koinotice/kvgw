@@ -29,7 +29,15 @@ async function main(){
         ViteTokenAddress:"tti_60844084aa2db10609358605" //du
     }
 
-    Nats.publish("vgw.token.create",t1)
+    const t2={
+        Address:"0xc246b4da903ae8a7de212a3ed6e3353cdb98602b",
+        Symbol:"NICE",
+        Name:"NICE TOKEN",
+        Decimals:0,
+        ViteTokenAddress:"tti_c22aca9ae589f4a96f471240" //du
+    }
+
+    Nats.publish("vgw.token.create",t2)
     //
     // const t2={
     //     Address:"0x45511ddc6ad771d2709e6e4049c0cf2df8349729",

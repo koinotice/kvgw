@@ -18,17 +18,17 @@ class TxsController extends Controller {
         }
 
 
-        const { ctx } = this
-        let { page } = ctx
-        const { common } = ctx.service
+        const {ctx} = this
+        let {page} = ctx
+        const {common} = ctx.service
         const search = ctx.request.query
         let where = {}
-        where.type=0;
-        if(search.hasOwnProperty('tokenId')&& search.tokenId !== '') {
-            where.tokenId =  (search.tokenId)
+        where.type = 0;
+        if (search.hasOwnProperty('tokenId') && search.tokenId !== '') {
+            where.tokenId = (search.tokenId)
         }
-        if(search.hasOwnProperty('walletAddress')&& search.walletAddress !== '') {
-            where.walletAddress =  (search.walletAddress)
+        if (search.hasOwnProperty('walletAddress') && search.walletAddress !== '') {
+            where.walletAddress = (search.walletAddress)
 
         }
         page = {
@@ -38,15 +38,21 @@ class TxsController extends Controller {
         }
 
         const [totalCount, depositRecords] = await Promise.all([
-            common.findCount({ modelName: 'Order' ,where}),
+            common.findCount({modelName: 'Order', where}),
             common.findPage({
                 modelName: 'Order',
                 page,
                 where
             })
         ])
-        const res = { totalCount, depositRecords, pageSize: page.pageSize, pageIndex: page.pageIndex }
-        ctx.helper.success({ ctx, res: res })
+
+        const inTxExplorerFormat = "https://explorer.vite.org/zh/transaction/{$tx}"
+        const outTxExplorerFormat = "https://rinkeby.etherscan.io/tx/{$tx}"
+
+        const res = {totalCount, depositRecords, pageSize: page.pageSize, pageIndex: page.pageIndex,
+            inTxExplorerFormat,
+            outTxExplorerFormat}
+        ctx.helper.success({ctx, res: res})
     }
 
     //deposit info
@@ -62,17 +68,17 @@ class TxsController extends Controller {
         }
 
 
-        const { ctx } = this
-        let { page } = ctx
-        const { common } = ctx.service
+        const {ctx} = this
+        let {page} = ctx
+        const {common} = ctx.service
         const search = ctx.request.query
         let where = {}
-        where.type=1;
-        if(search.hasOwnProperty('tokenId')&& search.tokenId !== '') {
-            where.tokenId =  (search.tokenId)
+        where.type = 1;
+        if (search.hasOwnProperty('tokenId') && search.tokenId !== '') {
+            where.tokenId = (search.tokenId)
         }
-        if(search.hasOwnProperty('walletAddress')&& search.walletAddress !== '') {
-            where.walletAddress =  (search.walletAddress)
+        if (search.hasOwnProperty('walletAddress') && search.walletAddress !== '') {
+            where.walletAddress = (search.walletAddress)
 
         }
         page = {
@@ -82,15 +88,20 @@ class TxsController extends Controller {
         }
 
         const [totalCount, withdrawRecords] = await Promise.all([
-            common.findCount({ modelName: 'Order' ,where}),
+            common.findCount({modelName: 'Order', where}),
             common.findPage({
                 modelName: 'Order',
                 page,
                 where
             })
         ])
-        const res = { totalCount, withdrawRecords, pageSize: page.pageSize, pageIndex: page.pageIndex }
-        ctx.helper.success({ ctx, res: res })
+        const inTxExplorerFormat = "https://explorer.vite.org/zh/transaction/{$tx}"
+        const outTxExplorerFormat = "https://rinkeby.etherscan.io/tx/{$tx}"
+
+        const res = {totalCount, depositRecords, pageSize: page.pageSize, pageIndex: page.pageIndex,
+            inTxExplorerFormat,
+            outTxExplorerFormat}
+        ctx.helper.success({ctx, res: res})
     }
 
 

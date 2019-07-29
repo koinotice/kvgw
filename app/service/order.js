@@ -9,36 +9,10 @@ module.exports = app => {
     class Order extends app.Service {
 
 
-
+        //插入充值记录
         async insertOrder(vgwOrder) {
 
-            //console.log(vgwOrder)
 
-            // From: '0xC41a4593A284C9E32D1F3e9101FB5067eC0b404d',
-            //     To: '0xf07ce7554bd162b1d7ef19aef974bd581c206316',
-            //     Amount: 431000000000000000000,
-            //     Token: '0xbeaad2b3f074fa6dabcb17ffc6044e1627828637',
-            //     blockNumber: 4771496,
-            //     TxHash:
-            // '0x73c13124411047d7dacba8330a54b7c6c389fc71bc7c5e4ce2e5b44b2524e4ba',
-            //     Status: 2,
-            //     ViteHash:
-            // 'dd2837dc9d323c188362a24348bda8f0dc1d67de0a4a592c0583b3903f5c38e1',
-            //     ViteStaus: 1
-            //
-            // id: {type: INTEGER, primaryKey: true, autoIncrement: true},
-            // walletAddress: {type:STRING(255),allowNull: false},
-            // tokenId: {type: STRING(250), allowNull: false},//姓名
-            // inTxHash: {type: STRING(250), allowNull: true},//姓名
-            // outTxHash: {type: STRING(250), allowNull: true},//姓名
-            // amount: {type: STRING(250), allowNull: true},//姓名
-            // fee: {type: STRING(250), allowNull: true},//姓名
-            // state: {type: STRING(250), allowNull: true},//姓名
-            // dateTime: {type: STRING(250), allowNull: true},//姓名
-            // type: {type: INTEGER, defaultValue: "0"}, //0 充值 1 提现
-            //
-            // createdAt: DATE,//创建时间
-            //     updatedAt: DATE,//更新时间
             const params={
                 walletAddress:vgwOrder.ViteWalletAddress.toLocaleString(),
                 tokenId:vgwOrder.ViteToken.toLocaleString(),
@@ -48,6 +22,32 @@ module.exports = app => {
                 fee:0,
                 state:vgwOrder.ViteStaus,
             }
+            console.log(params)
+            //
+            const ret=await this.ctx.model.Order.create(
+                params
+             )
+
+
+            console.log("ret.dataValues",ret.dataValues)
+            return params;
+        }
+
+        //插入提现记录
+        async insertOrderWithdraw(vgwOrder) {
+
+
+            const params={
+                walletAddress:vgwOrder.ViteWalletAddress.toLocaleString(),
+                tokenId:vgwOrder.ViteTokenID.toLocaleString(),
+                inTxHash:vgwOrder.Hash.String,
+                outTxHash:vgwOrder.ViteHash,
+                amount:vgwOrder.Amount,
+                fee:0,
+                state:1,
+                type:1
+            }
+
             console.log(params)
             //
             const ret=await this.ctx.model.Order.create(
