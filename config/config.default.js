@@ -7,7 +7,7 @@ module.exports = appInfo => {
     config.keys = appInfo.name + '_padipata';
 
     // 部署环境
-    config.domain = 'http://xsgw.71an.com:7001';
+    config.domain = 'https://xsgw.71an.com';
 
     // -------------------------微信相关---------------------------
     config.xcx_appId = '';
@@ -85,21 +85,25 @@ module.exports = appInfo => {
     config.security = {
         csrf: {
             enable: false,
+            ignoreJSON: true
         },
+        domainWhiteList: ['*']
     };
 
     // 解决跨域
     config.cors = {
-        origin: '*',
-        allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+
+        credentials: true,
+        origin: ['*' ],
+        allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
     };
 
-    // 阿里云监控
-    config.alinode = {
-        enable: true,
-        appid: '68663',
-        secret: '327fbbf38c7f56fdbf2269eb57c88460c410ae00',
-    };
+    // // 阿里云监控
+    // config.alinode = {
+    //     enable: false,
+    //     appid: '68663',
+    //     secret: '327fbbf38c7f56fdbf2269eb57c88460c410ae00',
+    // };
 
     return config;
 };

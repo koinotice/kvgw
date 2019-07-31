@@ -37,6 +37,8 @@ module.exports = app => {
                     Address:wallets.dataValues.eth_address.toLocaleLowerCase(),
                     ViteAddress:wallets.dataValues.vite_address
                 }
+
+                app.redis.set("")
                 app.nats.publish("vgw.wallet.update",obj)
 
 

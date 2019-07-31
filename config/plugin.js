@@ -27,7 +27,7 @@ exports.redis = {
 // };
 
 exports.sessionRedis = {
-    enable: true,
+    enable: false,
     package: 'egg-session-redis',
 };
 //路由划分
@@ -38,7 +38,7 @@ exports.routerPlus = {
 
 //阿里云监控
 exports.alinode = {
-    enable: true,
+    enable: false,
     package: 'egg-alinode',
 };
 
