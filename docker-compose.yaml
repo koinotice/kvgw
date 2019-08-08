@@ -1,64 +1,15 @@
-version: '3'
+version: '3.7'
+
 services:
-  #  app:
-  #    build: ./
-  #    volumes:
-  #      - ./:/app
-  #    working_dir: /app
-  #    ports:
-  #      - 3000:3000
-  #    command: yarn start
-  ##    links:
-  ##      - "mysql-server:ms"
-  ##      - "redis-server:rd"
-  #    depends_on:
-  #      - postgres
-  #      - redis
-#  redix:
-#    image: alash3al/redix
-#    ports:
-#      - 6543:6380
-#      - 7090:7090
-#    volumes:
-#      - ./data/redix-data:/root/redix-data
-
-
-#  balance:
-#    image: hunterlong/tokenbalance
-#    ports:
-#      - 6544:8080
-#    environment:
-#      GETH_SERVER: "https://rinkeby.infura.io/XyRNUV3vyFAmldVaRIjO"
-
-  postgres:
-    build: "./postgres"
-    container_name: kvgw_postgres
-    restart: "always"
-    ports:
-      - 5432:5432
+  web:
+    build: .
     environment:
-      POSTGRES_DB: "pmker"
-      POSTGRES_USER: "pmker"
-      POSTGRES_PASSWORD: "Zheli123"
+      - CUSTOMIZATIONS_PATH=/temp
+      - DEVENV_PATH=/app
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
+      - yarn_cache:/yarn
+      - node_modules_cache:/app/node_modules
 
-
-  redis:
-    image: redis
-    restart: always
-    container_name: kvgw_redis
-    volumes:
-      - ./data/redis:/data
-    ports:
-      - 6379:6379
-
-  nats:
-    image: nats-streaming:latest
-    restart: always
-    container_name: kvgw_nats
-    #command: -m 8222 --store SQL --sql_driver postgres --sql_source "postgres://pmker:Zheli123@postgres/pmker?sslmode=disable"
-    #command: -m 8222 --store SQL --sql_driver postgres --sql_source "postgres://pmker:Zheli123@postgres/pmker?sslmode=disable"
-    ports:
-      - "4222:4222"
-      - "8222:8222"
+volumes:
+  yarn_cache:
+  node_modules_cache:

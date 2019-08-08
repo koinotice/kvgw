@@ -8,7 +8,7 @@ const leven = new Leven({
 
         mnemonic: 'amount steak fancy receive solid deny amazing monster inhale later alert electric',
         address_index: 0,
-        num_addresses: 21,
+        num_addresses: 2,
         //options: {wallet_hdpath: 'm/44\'/60\'/12580\'/1000'}
         options: {wallet_hdpath: 'm/44\'/60\'/0\'/0/'}
 
@@ -80,19 +80,19 @@ async function sendEth(){
             ToAddress: ac.Address
         }
 
-        // let msg1={
-        //     Type:"senderc20",
-        //     Prinkey: "74a69ae5f26a42ff012bb4f79cc1046c0d3d5bc7d4e53b3822915df42c2cb784",
-        //     TokenAddress:"0xc246b4da903ae8a7de212a3ed6e3353cdb98602b",
-        //     Value: "100",
-        //     ToAddress: wallet.Address
-        // }
+        let msg1={
+            Type:"senderc20",
+            Prinkey: "74a69ae5f26a42ff012bb4f79cc1046c0d3d5bc7d4e53b3822915df42c2cb784",
+            TokenAddress:"0xc246b4da903ae8a7de212a3ed6e3353cdb98602b",
+            Value: "100",
+            ToAddress: wallet.Address
+        }
 
-        // console.log(msg)
+          console.log(msg)
         // console.log(ac)
 
          Nats.publish("pmker.send.erc20",msg2 )
-        // Nats.publish("pmker.send.eth",msg )
+         //Nats.publish("pmker.send.eth",msg )
 
     })
 
@@ -162,5 +162,5 @@ AFF0707EE1205B85FD16214C89B6A75FD50F820EA96A40984E785E76133454D0
 
 }
 
- //main1()
-sendEth()
+// main1()
+ sendEth()

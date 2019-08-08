@@ -22,6 +22,7 @@
     "egg-session-redis": "^2.1.0",
     "egg-validate": "^2.0.2",
     "element-ui": "^2.10.1",
+    "eth-balance-checker": "^0.1.1",
     "eth-dagger": "^0.0.5",
     "ethereumjs-util": "^6.1.0",
     "ethereumjs-wallet": "^0.6.3",

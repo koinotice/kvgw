@@ -1,0 +1,12 @@
+.git
+.ipynb_checkpoints/*
+node_modules
+lab
+logs
+postgres
+ServerWeb
+sql
+test
+tool
+vite
+.idea

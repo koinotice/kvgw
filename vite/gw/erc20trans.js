@@ -3,10 +3,10 @@ const {sendTokens} = require('send-tokens');
 const TOKEN_ADDRESS = '0xbeaad2b3f074fa6dabcb17ffc6044e1627828637';
 // Recipient of tokens.
 //const RECIPIENT = '0xeab852b92a8992c971fe015c01b6195e32c3d98b';
-const RECIPIENT = '0x924c1f12d6ac920d20feb9c58cdc1c0b4733eb0d';
+const RECIPIENT = '0xb393d99e3b0a8260b34100632a295d70199c4a7c';
 
 // Sending wallet's private key.
-const PRIVATE_KEY = 'F02F364A8E58A573D7852955555E6533372ED9F6006760A3243DC953C3F5DB9C';
+const PRIVATE_KEY = '84152329CD53F7495DF7DA3C1384B4657CB9C0054E8A287EBDF71C23B938608B';
 // Send 100 WHOLE tokens of tokens to someone using a private key and wait for
 // it to be mined.
 async function main(){
