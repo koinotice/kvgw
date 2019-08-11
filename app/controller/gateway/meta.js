@@ -17,7 +17,7 @@ class MetaController extends Controller {
         }
         const tokenInfo = await this.ctx.service.meta.tokenInfo(tokenId);
         const res = {
-            "type": tokenInfo.type,
+            "type": parseInt(0),
             "depositState": tokenInfo.depositState,
             "withdrawState": tokenInfo.withdrawState
         }
@@ -48,11 +48,10 @@ class MetaController extends Controller {
         // noticeMsg	注意
         const res = {
             "depositAddress": "",
-            "labelName": tokenInfo.labelName,
-            "label": tokenInfo.label,
-            "minimumDepositAmount":tokenInfo.minimumDepositAmount,
+
+            "minimumDepositAmount":1,
             "confirmationCount":tokenInfo.confirmationCount,
-            "noticeMsg":tokenInfo.noticeMsg,
+
         }
 
 

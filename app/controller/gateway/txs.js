@@ -46,8 +46,9 @@ class TxsController extends Controller {
             })
         ])
 
+
         const inTxExplorerFormat = "https://explorer.vite.org/zh/transaction/{$tx}"
-        const outTxExplorerFormat = "https://rinkeby.etherscan.io/tx/{$tx}"
+        const outTxExplorerFormat = "https://etherscan.io/tx/{$tx}"
 
         const res = {totalCount, depositRecords, pageSize: page.pageSize, pageIndex: page.pageIndex,
             inTxExplorerFormat,
@@ -96,9 +97,9 @@ class TxsController extends Controller {
             })
         ])
         const inTxExplorerFormat = "https://explorer.vite.org/zh/transaction/{$tx}"
-        const outTxExplorerFormat = "https://rinkeby.etherscan.io/tx/{$tx}"
+        const outTxExplorerFormat = "https://etherscan.io/tx/{$tx}"
 
-        const res = {totalCount, depositRecords, pageSize: page.pageSize, pageIndex: page.pageIndex,
+        const res = {totalCount, withdrawRecords, pageSize: page.pageSize, pageIndex: page.pageIndex,
             inTxExplorerFormat,
             outTxExplorerFormat}
         ctx.helper.success({ctx, res: res})

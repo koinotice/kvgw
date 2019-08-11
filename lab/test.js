@@ -1,22 +1,8 @@
-const d=[]
-for(var i=1;i<20;i++){
-    const e={
-                tokenId: '1',
-                walletAddress: '1',
-                type:1,
-                inTxHash:i+"abc"
-            }
+console.log(Date.now())
 
-    d.push(e)
-}
-for(var i=1;i<20;i++){
-    const e={
-                tokenId: '1',
-                walletAddress: '1',
-                type:0,
-                inTxHash:i+"abc"
-            }
+1565542912647
+1565542906
 
-    d.push(e)
-}
-console.log(d)
+1505189020000
+
+1565542909

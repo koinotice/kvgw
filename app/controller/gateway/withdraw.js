@@ -21,10 +21,11 @@ class WithdrawController extends Controller {
         const tokenInfo=token.dataValues
         console.log("tokeninfo",tokenInfo)
         const res = {
-            "minimumWithdrawAmount": tokenInfo.minimumWithdrawAmount,
-            "maximumWithdrawAmount": tokenInfo.maximumWithdrawAmount,
-            "gatewayAddress": tokenInfo.gatewayAddress,
-            "noticeMsg": tokenInfo.noticeMsg
+            "type":0,
+            "minimumWithdrawAmount": 1,//tokenInfo.minimumWithdrawAmount,
+            "maximumWithdrawAmount": 100000000000000000000000,//tokenInfo.maximumWithdrawAmount,
+            "gatewayAddress": "vite_e8950cbdc1d13ff80389bae2872090bf0969d272477ed01924",//tokenInfo.gatewayAddress,
+
         }
         console.log(res)
         if (tokenInfo) {
